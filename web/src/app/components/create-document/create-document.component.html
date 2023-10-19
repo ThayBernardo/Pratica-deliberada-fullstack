@@ -1,0 +1,8 @@
+<div class="container">
+  <app-input data-cy="input-name" typeInput="text" title="Nome do documento:" placeholder="Nome" [(inputControl)]="name"></app-input>
+  <app-input data-cy="input-date" typeInput="date" title="Data limite para assinatura" [(inputControl)]="date"></app-input>
+  <div class="container-btns">
+    <app-button data-cy="btn-create" buttonText="Criar conta" typeButton="default" (click)="createDocument()"></app-button>
+    <app-button data-cy="btn-cancel" id="btn-back" buttonText="Cancelar" typeButton="cancel" (click)="cancel()"></app-button>
+  </div>
+</div>

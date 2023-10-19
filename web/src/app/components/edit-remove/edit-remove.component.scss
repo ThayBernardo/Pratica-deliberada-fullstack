@@ -1,0 +1,14 @@
+.container-remove {
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-top: 16px;
+  gap: 8px;
+
+  span {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+}

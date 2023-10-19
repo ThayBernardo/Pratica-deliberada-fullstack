@@ -1,0 +1,21 @@
+<h1 data-cy="title" class="title">Documentos</h1>
+<app-button typeButton="default" buttonText="Criar documento" (click)="redirectTo('/create-document')"></app-button>
+<app-button typeButton="default" buttonText="Criar empresa" (click)="redirectTo('/companys')"></app-button>
+<div class="container">
+  <div *ngFor="let document of documents"
+       class="container-unit-doc"
+       data-cy="container-unit-doc"
+       [matTooltip]="'Visualizar documento'"
+       (click)="redirectTo('/detail-doc', document.id)">
+    <div class="container-name">
+      <span data-cy="id">{{document.id + ' ID'}}</span>
+      <span data-cy="name">{{document.name}}</span>
+    </div>
+    <div *ngIf="document.signed" class="container-status signed">
+      <span data-cy="signed">Assinado</span>
+    </div>
+    <div *ngIf="!document.signed" class="container-status ongoing">
+      <span data-cy="ongoing">Em curso</span>
+    </div>
+  </div>
+</div>

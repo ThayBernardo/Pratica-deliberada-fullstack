@@ -1,0 +1,13 @@
+<div class="container">
+  <span data-cy="title" class="title">{{title}}</span>
+  <input
+    data-cy="input"
+    ngModel
+    class="input"
+    [value]="value"
+    [placeholder]="placeholder"
+    [(ngModel)]="inputControl"
+    (input)="onInputChange($event.target)"
+    [type]="typeInput ? typeInput : 'string'"
+  />
+</div>

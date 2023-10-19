@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="container-btns">
+    <app-button typeButton="default" buttonText="Criar documento" (click)="redirectTo('/create-document')"></app-button>
+    <app-button typeButton="cancel" buttonText="Voltar" (click)="redirectTo('/documents')"></app-button>
+  </div>
+  <div class="container-header">
+    <span data-cy="name">{{doc.name}}</span>
+    <div class="container-edit-remove">
+      <app-button buttonText="Editar" typeButton="default" (click)="openCloseToEditDocument()"></app-button>
+      <app-button data-cy="btn-rmv" buttonText="Remover" typeButton="remove" (click)="openCloseShowToRemoveDocument()"></app-button>
+    </div>
+  </div>
+  <app-edit-remove
+    *ngIf="showToRemoveDoc"
+    message="Tem certeza que deseja remover o documento ?"
+    labelPrincipalBtn="Remover"
+    (confirmClick)="delete()"
+    (cancelRemove)="openCloseShowToRemoveDocument()"
+  ></app-edit-remove>
+  <app-edit-remove
+    *ngIf="showToEditDoc"
+    message="Atualizar o documento"
+    [update]="showToEditDoc"
+    labelPrincipalBtn="Atualizar"
+    (nameChange)="getName($event)"
+    (dateChange)="getDate($event)"
+    (confirmClick)="updateDocument()"
+    (cancelRemove)="openCloseToEditDocument()"
+  ></app-edit-remove>
+</div>

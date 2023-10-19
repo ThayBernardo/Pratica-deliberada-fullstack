@@ -1,0 +1,8 @@
+<div class="container-login">
+  <app-input data-cy="input-email" typeInput="email" title="Digite seu e-mail:" placeholder="E-mail" [(inputControl)]="email"></app-input>
+  <app-input data-cy="input-password" typeInput="password" title="Digite sua senha:" placeholder="Senha" [(inputControl)]="password"></app-input>
+  <span data-cy="invalid-email" *ngIf="showInvalidEmail">E-mail não encontrado, clique em cadastrar-se caso não possua uma conta.</span>
+  <span data-cy="invalid-password" *ngIf="showInvalidPassword">Senha incorreta, por favor tente novamente.</span>
+  <app-button data-cy="btn-login" typeButton="default" buttonText="Entrar" (click)="verifyValidAccount()"></app-button>
+  <app-button data-cy="btn-create-account" buttonText="Cadastrar-se" (click)="redirectToCreateAccount()"></app-button>
+</div>

@@ -1,0 +1,22 @@
+<div class="container-remove">
+  <span data-cy="message">{{message}}</span>
+  <app-button *ngIf="!update" data-cy="btn-rmv" [buttonText]="labelPrincipalBtn" typeButton="remove" (click)="onConfirmToClick()"></app-button>
+  <div *ngIf="update" data-cy="container-update">
+    <app-input typeInput="text" title="Novo nome" placeholder="Nome" [(inputControl)]="name"></app-input>
+    <app-input data-cy="date" *ngIf="itemToEdit === 'document'" typeInput="date" title="Nova data limite" [(inputControl)]="date"></app-input>
+    <mat-form-field *ngIf="itemToEdit !== 'document'">
+      <mat-label>Linguagem</mat-label>
+      <mat-select [(ngModel)]="language">
+        <mat-option *ngFor="let language of languages" [value]="language">{{language}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="itemToEdit !== 'document'">
+      <mat-label>Timezone</mat-label>
+      <mat-select [(ngModel)]="timezone">
+        <mat-option *ngFor="let timezone of timezones" [value]="timezone">{{timezone}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <app-button data-cy="btn-confirm-update" *ngIf="update" [buttonText]="labelPrincipalBtn" typeButton="default" (click)="onConfirmToClick()"></app-button>
+  <app-button data-cy="btn-cancel" buttonText="Cancelar" typeButton="cancel" (click)="onCancelRemove()"></app-button>
+</div>

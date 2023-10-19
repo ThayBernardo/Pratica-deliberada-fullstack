@@ -1,0 +1,10 @@
+<div class="container">
+  <app-input data-cy="input-email" typeInput="email" title="Digite seu e-mail" placeholder="E-mail" [(inputControl)]="email"></app-input>
+  <app-input data-cy="input-password" typeInput="password" title="Defina sua senha" placeholder="Senha" [(inputControl)]="password"></app-input>
+  <app-input data-cy="input-confirm-password" typeInput="password" title="Confirme sua senha" placeholder="Repita a senha" [(inputControl)]="confirmPassword"></app-input>
+  <span *ngIf="showMessageErrorPassword">As senhas digitadas não coincidem</span>
+  <div class="container-btns">
+    <app-button data-cy="btn-create" buttonText="Criar conta" typeButton="default" (click)="createUser()"></app-button>
+    <app-button data-cy="btn-back" buttonText="Cancelar" typeButton="cancel"></app-button>
+  </div>
+</div>

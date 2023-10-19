@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  max-width: 756px;
+  border: 1px solid black;
+  padding: 8px;
+  border-radius: 8px;
+  margin: auto;
+  flex-direction: column;
+
+  .container-btns {
+    max-width: 350px;
+    display: flex;
+    align-self: end;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .container-edit-remove {
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  .container-remove {
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-top: 16px;
+    gap: 8px;
+
+    span {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+  }
+}

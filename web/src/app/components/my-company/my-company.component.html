@@ -1,0 +1,32 @@
+<h1>Empresa</h1>
+<div class="container">
+  <div class="container-create-company">
+    <app-button buttonText="Criar empresa" typeButton="default" (click)="openCloseToCreateCompany()"></app-button>
+  </div>
+  <div *ngIf="showToCreateCompany" class="container-create" data-cy="container-create">
+    <app-input typeInput="text" title="Digite o nome da empresa:" placeholder="Nome"
+               [(inputControl)]="name"></app-input>
+    <mat-form-field>
+      <mat-label>Linguagem</mat-label>
+      <mat-select [(ngModel)]="language">
+        <mat-option *ngFor="let language of languages" [value]="language">{{language}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Timezone</mat-label>
+      <mat-select [(ngModel)]="timezone">
+        <mat-option *ngFor="let timezone of timezones" [value]="timezone">{{timezone}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <app-button typeButton="cancel" buttonText="Cancelar" (click)="openCloseToCreateCompany()"></app-button>
+    <app-button typeButton="default" buttonText="Criar" (click)="createCompany()"></app-button>
+  </div>
+  <div *ngFor="let company of companys" class="unit-company">
+    <div class="container-infos" (click)="redirectTo('/company-details', company.id)" matTooltip="Vizualizar empresa">
+      <span data-cy="id">{{'ID ' + company.id}}</span>
+      <span data-cy="name">{{'Nome: ' + company.name}}</span>
+      <span data-cy="language">{{'Linguagem: ' + company.language}}</span>
+      <span data-cy="timezone">{{'Timezone: ' + company.timezone}}</span>
+    </div>
+  </div>
+</div>

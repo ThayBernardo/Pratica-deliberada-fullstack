@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="container-btns">
+    <app-button data-cy="btn-back" typeButton="cancel" buttonText="Voltar" (click)="redirectTo('/companys')"></app-button>
+  </div>
+  <div class="container-header">
+    <span data-cy="name">{{company.name}}</span>
+    <div class="container-edit-remove">
+      <app-button data-cy="btn-edit" buttonText="Editar" typeButton="default" (click)="openCloseToEditCompany()"></app-button>
+      <app-button data-cy="btn-rmv" buttonText="Remover" typeButton="remove" (click)="openCloseToRemoveCompany()"></app-button>
+    </div>
+  </div>
+  <app-edit-remove
+    *ngIf="showToRemoveCompany"
+    data-cy="app-remove"
+    message="Tem certeza que deseja remover a empresa ?"
+    labelPrincipalBtn="Remover"
+    (confirmClick)="delete()"
+    (cancelRemove)="openCloseToRemoveCompany()"
+  ></app-edit-remove>
+  <app-edit-remove
+    *ngIf="showToEditCompany"
+    data-cy="app-edit"
+    message="Atualizar a empresa"
+    [update]="showToEditCompany"
+    labelPrincipalBtn="Atualizar"
+    itemToEdit="company"
+    (confirmClick)="updateCompany()"
+    (nameChange)="getNewName($event)"
+    (languageChange)="getNewLanguage($event)"
+    (timezoneChange)="getNewTimezone($event)"
+    (cancelRemove)="openCloseToEditCompany()"
+  ></app-edit-remove>
+</div>

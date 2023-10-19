@@ -1,0 +1,50 @@
+.title {
+  margin-left: 32px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 756px;
+  margin: auto;
+
+  .container-unit-doc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #dcdcdc;
+    }
+
+    .container-name {
+      display: flex;
+      gap: 8px;
+
+      span:first-child {
+        color: #2C2C2C;
+        font-weight: bold;
+      }
+    }
+
+    .container-status {
+      border-radius: 4px;
+      padding: 8px;
+
+      &.ongoing {
+        background-color: wheat;
+      }
+
+      &.signed {
+        background-color: #4cae4c;
+      }
+    }
+  }
+}
